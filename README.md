@@ -1,4 +1,4 @@
 # tankfill
 Simulate filling / emptying a tank
 
-![image](https://user-images.githubusercontent.com/2046227/163035115-ea907e17-88b4-45d4-8f5a-febde82fa20f.png)
+![image](https://user-images.githubusercontent.com/2046227/163194005-566c115e-1c95-4315-a4ae-07b3770a9be0.png)
