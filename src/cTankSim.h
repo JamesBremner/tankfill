@@ -5,9 +5,9 @@ public:
     {
         myTank.BuildCubicTank(dim);
     }
-    bool Step()
+    bool Step( int deltaFlow )
     {
-        return myTank.DeltaFlow(1);
+        return myTank.DeltaFlow(deltaFlow);
     }
 
     int LevelAsPercent()
