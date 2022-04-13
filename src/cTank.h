@@ -8,6 +8,14 @@ public:
      */
     void BuildCubicTank(float dim);
 
+    /** Construct pipe tank
+     * @param[in] max maximum capacity
+     * 
+     * This is used when the geometry of the tnk is unknown
+     * except for its maximum capacity
+     */
+    void BuildPipe( float max );
+
     /** Update tank level
      * @param[in] f total flow into tank ( input - output )
      * @return true if OK, false if tank overflows
@@ -16,6 +24,12 @@ public:
 
     /// Current tank level as a per centage
     int LevelAsPercent() const;
+
+    /// set level
+    void Level( int l )
+    {
+        myLevel = l;
+    }
 
 private:
     /** The change in level at a paricular level caused by 1 unit of volume change

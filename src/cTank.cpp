@@ -17,6 +17,13 @@ void cTank::BuildCubicTank(float dim)
     myShape.push_back(std::make_pair(dim, -1));
 }
 
+void cTank::BuildPipe( float max )
+{
+    myShape.clear();
+    myShape.push_back(std::make_pair(0, 1));
+    myShape.push_back(std::make_pair(max, -1));
+}
+
 bool cTank::DeltaFlow(float f)
 {
     std::pair<float, float> &lv = myShape[0];

@@ -23,7 +23,11 @@ CCflags = -std=c++17 $(OPT) -D_mingw_
 
 # sources
 OBJ = \
-	$(ODIR)/main.o $(ODIR)/cTank.o 
+	$(ODIR)/main.o $(ODIR)/cTank.o $(ODIR)/cGUI.o 
+
+resOBJ = \
+	$(ODIR)/reservoir.o $(ODIR)/cTank.o $(ODIR)/cGUI.o 
+
 
 ### COMPILE
 
@@ -34,6 +38,11 @@ $(ODIR)/%.o: %.cpp
 tanksim: $(OBJ)
 	g++ $(OPT) \
 	-o bin/tanksim.exe $^  \
+	$(static_link_flags) $(LIBS)
+
+res: $(resOBJ)
+	g++ $(OPT) \
+	-o bin/reservoirsim.exe $^  \
 	$(static_link_flags) $(LIBS)
 
 .PHONY: clean

@@ -1,13 +1,19 @@
-class cTankSim
+/// Base class for simulators using tank model
+class cBaseSim
 {
 public:
     void BuildCubicTank(float dim)
     {
         myTank.BuildCubicTank(dim);
     }
-    bool Step( int deltaFlow )
+    void BuildPipe(float dim)
     {
-        return myTank.DeltaFlow(deltaFlow);
+        myTank.BuildPipe(dim);
+    }
+
+    virtual bool Step(int deltaFlow)
+    {
+        return false;
     }
 
     int LevelAsPercent()
@@ -15,6 +21,17 @@ public:
         return myTank.LevelAsPercent();
     }
 
-private:
+protected:
     cTank myTank;
+};
+
+/// Tank filler simulator
+class cTankSim : public cBaseSim
+{
+public:
+
+    virtual bool Step(int deltaFlow)
+    {
+        return myTank.DeltaFlow(deltaFlow);
+    }
 };

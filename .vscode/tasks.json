@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "bats",
+            "label": "tank",
             "options": {
                 "cwd": "${workspaceFolder}"
                },
@@ -23,6 +23,26 @@
                 "isDefault": true
             }
         },
+            {
+                "label": "res",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                   },
+                "command": "mingw32-make.exe",
+                "args": [
+                    "-f",
+                    ".vscode/makefile",
+                    "res"
+                ],
+    
+                "problemMatcher": [
+                    "$gcc"
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
+            },
         {
             "label": "clean",
             "options": {
