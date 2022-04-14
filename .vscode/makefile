@@ -26,7 +26,8 @@ OBJ = \
 	$(ODIR)/main.o $(ODIR)/cTank.o $(ODIR)/cGUI.o 
 
 resOBJ = \
-	$(ODIR)/reservoir.o $(ODIR)/cTank.o $(ODIR)/cGUI.o 
+	$(ODIR)/reservoir.o $(ODIR)/cTank.o $(ODIR)/cGUI.o \
+	$(ODIR)/Probability.o
 
 
 ### COMPILE
