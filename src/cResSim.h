@@ -15,7 +15,7 @@ public:
     bool Step( int df )
     {
         myStep++;
-        return myTank.DeltaFlow(Rain());
+        return myTank.DeltaFlow(Rain()-Usage());
     }
 
     void Level( float l )
@@ -35,4 +35,12 @@ private:
      * You can treat this as a single addition to the reservoir at the beginning of each day.
      */
     float Rain();
+
+    /**
+     * The water outflow (or usage) per hour is normally distributed with a mean of 6,000 gallons and a standard deviation of 2 gallons
+     *  between the hours of 8:00 a.m. and 8:00 p.m.  
+     * Water outflow (or usage) is normally distributed with a mean of 500 gallons and a standard deviation of 1 gallon 
+     * between the hours of 8:00 p.m. and 8:00 a.m.
+     */
+    float Usage();
 };

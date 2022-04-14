@@ -26,6 +26,21 @@ float cResSim::Rain()
         290000,
         100000);
 }
+float cResSim::Usage()
+{
+    int hour = myStep % 24;
+    if (8 < hour && hour < 20)
+    {
+        // peak usage
+        return raven::sim::prob::cNormal::ran(
+            6000,
+            2);
+    }
+    else
+        return raven::sim::prob::cNormal::ran(
+            500,
+            1);
+}
 
 cResSim *theSim;
 
