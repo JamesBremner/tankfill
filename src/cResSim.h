@@ -14,6 +14,7 @@ public:
 
 private:
     std::ofstream myf;
+
 };
 
 /// Reservoir simulator
@@ -25,9 +26,16 @@ public:
 
     bool Step( int df );
 
+    /// set reservoir level
     void Level( float l )
     {
         myTank.Level( l );
+    }
+
+    /// set probability per cent of rain on any day
+    void RainProbPercent( int p )
+    {
+        myProbRain = p;
     }
 
 private:
@@ -53,4 +61,6 @@ private:
      * between the hours of 8:00 p.m. and 8:00 a.m.
      */
     float Usage();
+
+    void Report();
 };

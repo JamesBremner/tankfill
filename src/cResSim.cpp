@@ -10,7 +10,8 @@
 #include "Probability.h"
 
 cResSim::cResSim()
-    : myStep(-1), myProbRain(20), myPeakUsageMean(6000), myNightUsageMean(500)
+    : myStep(-1), myProbRain(20), myPeakUsageMean(6000),\
+     myNightUsageMean(500)
 {
 }
 
@@ -52,12 +53,29 @@ float cResSim::Usage()
 bool cResSim::Step(int df)
 {
     myStep++;
+    if( myStep / 24 == 30 ) {
+        Report();
+        return false;
+    }
     myLog.DayNo = myStep / 24;
     myLog.hour = myStep % 24;
+    int prelevel = myTank.Level();
     bool ret = myTank.DeltaFlow(Rain() - Usage());
+    if( ! ret )
+    {
+        // tank ran dry
+        // reverse usage
+        myTank.Level( prelevel );
+    }
     myLog.level = myTank.Level();
     myLog.Write();
-    return ret;
+    return true;
+}
+void cResSim::Report()
+{
+   std::cout << "Water Level end of 30 days with chance of rain at "
+    << myProbRain << "% = "
+    << myTank.Level() << " gallons\n";
 }
 
 cResLog::cResLog()

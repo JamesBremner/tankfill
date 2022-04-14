@@ -21,7 +21,7 @@ cBaseSim * sim )
       lbFill(wex::maker::make<wex::label>(fm)),
       slInput(wex::maker::make<wex::slider2>(fm)),
       slOutput(wex::maker::make<wex::slider2>(fm)),
-      myDriveTimer(new wex::timer(fm, 1000)),
+      myDriveTimer(new wex::timer(fm, 50)),
       mySim( sim ),
       tankbottom(400)
 {

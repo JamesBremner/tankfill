@@ -6,7 +6,7 @@ public:
     {
         myTank.BuildCubicTank(dim);
     }
-    void BuildPipe(float dim)
+    void Build(float dim)
     {
         myTank.BuildPipe(dim);
     }
