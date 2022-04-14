@@ -27,7 +27,7 @@ OBJ = \
 
 resOBJ = \
 	$(ODIR)/reservoir.o $(ODIR)/cTank.o $(ODIR)/cGUI.o \
-	$(ODIR)/Probability.o
+	$(ODIR)/cResSim.o $(ODIR)/Probability.o
 
 
 ### COMPILE

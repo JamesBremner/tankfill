@@ -25,11 +25,18 @@ cBaseSim * sim )
       mySim( sim ),
       tankbottom(400)
 {
+    if( title == "Tank filler simulation")
+        myBuild = eBuild::tankfill;
+    else
+        myBuild =eBuild::reservoir;
+
     lbInput.move(20, 30, 70, 30);
     lbInput.text("Input: 0");
     lbOutput.move(310, tankbottom-50, 70, 30);
     lbOutput.text("Output 0 u/sec");
     lbFill.move(200, tankbottom+30, 70, 30);
+
+    if( myBuild == eBuild::tankfill ) {
     slInput.move(30,100, 50, 200);
     slInput.range( 0, 10 );
     slInput.position( 0 );
@@ -38,7 +45,7 @@ cBaseSim * sim )
     slOutput.range( 0, 10 );
     slOutput.position( 0 );
     slOutput.vertical();
-
+    }
 
 
     slInput.events().slid([&](int pos)

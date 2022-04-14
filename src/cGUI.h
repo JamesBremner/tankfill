@@ -16,6 +16,11 @@ private:
     wex::timer *myDriveTimer;
     cBaseSim * mySim;
 
+    enum class eBuild {
+        tankfill,
+        reservoir,
+    };
+    eBuild myBuild;
     const int tankbottom;
 
     void draw(wex::shapes &S);

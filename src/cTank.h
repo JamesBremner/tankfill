@@ -31,6 +31,11 @@ public:
         myLevel = l;
     }
 
+    int Level() const
+    {
+        return myLevel;
+    }
+
 private:
     /** The change in level at a paricular level caused by 1 unit of volume change
      * The change rate is constant from this height to the next height in vector

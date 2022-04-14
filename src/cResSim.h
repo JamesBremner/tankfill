@@ -1,22 +1,29 @@
+#include <fstream>
 #include "cTankSim.h"
+
+class cResLog
+{
+public:
+    int DayNo;
+    int hour;
+    int level;
+    bool rain;
+
+    cResLog();
+    void Write();
+
+private:
+    std::ofstream myf;
+};
 
 /// Reservoir simulator
 class cResSim : public cBaseSim
 {
 public:
 
-    cResSim()
-    : myStep(0)
-    , myProbRain( 20 )
-    {
+    cResSim();  
 
-    }
-
-    bool Step( int df )
-    {
-        myStep++;
-        return myTank.DeltaFlow(Rain()-Usage());
-    }
+    bool Step( int df );
 
     void Level( float l )
     {
@@ -26,6 +33,9 @@ public:
 private:
     int myStep;
     int myProbRain;     ///< Per cent probability of rain on a day
+    int myPeakUsageMean;
+    int myNightUsageMean;
+    cResLog myLog;
 
     /** Simulate rain fall
      * @return reservoir inflow as a result of rain
